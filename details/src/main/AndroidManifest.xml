@@ -10,4 +10,14 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:exported="false" />
+
+    </application>
 </manifest>
