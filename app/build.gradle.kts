@@ -76,6 +76,9 @@ dependencies {
     //glide
     api(libs.glide)
 
+    //lottie
+    api(libs.lottie)
+
     //unit test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
