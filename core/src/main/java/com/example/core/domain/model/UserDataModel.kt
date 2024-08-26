@@ -7,7 +7,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class UserDataModel(
-    val name: String,
+    val avatar: String,
+    val firstName: String,
+    val lastName: String,
     val dateOfBirth: String,
     val address: String
 ) : Parcelable {
@@ -15,8 +17,12 @@ data class UserDataModel(
     class Mapper : Function<List<UserDataResponse>, List<UserDataModel>> {
         override fun apply(t: List<UserDataResponse>): List<UserDataModel> {
             return t.map {
+                val parts = it.name?.trim()?.split("\\s+".toRegex())
+
                 UserDataModel(
-                    name = it.name.orEmpty(),
+                    avatar = it.avatar.orEmpty(),
+                    firstName = parts?.first().orEmpty(),
+                    lastName = parts?.last().orEmpty(),
                     dateOfBirth = it.createdAt.orEmpty(),
                     address = "${it.addressNo} ${it.street} ${it.county} ${it.zipCode} ${it.country}"
                 )
