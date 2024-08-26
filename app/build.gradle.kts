@@ -54,30 +54,28 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     //core
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    api(libs.androidx.appcompat)
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.lifecycle.runtime.ktx)
+    api(libs.androidx.activity.compose)
+    api(platform(libs.androidx.compose.bom))
+    api(libs.androidx.ui)
+    api(libs.androidx.ui.graphics)
+    api(libs.androidx.ui.tooling.preview)
+    api(libs.androidx.material3)
 
     //compose navigation
-    implementation(libs.androidx.compose.navigation)
+    api(libs.androidx.compose.navigation)
 
     //dependency injection
-    implementation(libs.hilt.android)
+    api(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
-    //rxjava
-    implementation(libs.rxjava)
-    implementation(libs.rxAndroid)
-
     //glide
-    implementation(libs.glide)
+    api(libs.glide)
 
     //unit test
     testImplementation(libs.junit)

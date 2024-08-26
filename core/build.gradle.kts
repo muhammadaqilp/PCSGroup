@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
+    id(libs.plugins.parcelize.get().pluginId)
     kotlin(libs.plugins.kapt.get().pluginId)
 }
 
@@ -17,7 +18,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_API", "\"https://66b197c51ca8ad33d4f482c9.mockapi.io/\"")
+        }
         release {
+            buildConfigField("String", "BASE_API", "\"https://66b197c51ca8ad33d4f482c9.mockapi.io/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -39,8 +44,8 @@ android {
 
 dependencies {
     //rxjava
-    implementation(libs.rxjava)
-    implementation(libs.rxAndroid)
+    api(libs.rxjava)
+    api(libs.rxAndroid)
 
     //dependency injection
     implementation(libs.hilt.android)
@@ -55,4 +60,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.retrofit.adapter.rxjava)
+
+    //unit test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

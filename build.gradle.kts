@@ -5,4 +5,5 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.android.dynamic.feature) apply false
+    kotlin(libs.plugins.jvm.get().pluginId).version(libs.versions.jvm)
 }
