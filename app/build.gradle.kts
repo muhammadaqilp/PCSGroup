@@ -31,44 +31,43 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
-        compose = true
         viewBinding = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
     dynamicFeatures += setOf(":details")
 }
 
 dependencies {
     implementation(project(":core"))
 
-    //core
+    //ui
+    api(libs.androidx.activity)
     api(libs.androidx.appcompat)
     api(libs.androidx.core.ktx)
+    api(libs.androidx.constraint.layout)
+    api(libs.androidx.recycler.view)
     api(libs.androidx.lifecycle.runtime.ktx)
-    api(libs.androidx.activity.compose)
-    api(platform(libs.androidx.compose.bom))
-    api(libs.androidx.ui)
-    api(libs.androidx.ui.graphics)
-    api(libs.androidx.ui.tooling.preview)
-    api(libs.androidx.material3)
-
-    //compose navigation
-    api(libs.androidx.compose.navigation)
 
     //dependency injection
     api(libs.hilt.android)
@@ -81,8 +80,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }
