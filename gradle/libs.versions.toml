@@ -18,6 +18,7 @@ rxAndroid = "2.1.1"
 glide = "4.16.0"
 appcompat = "1.6.1"
 material = "1.10.0"
+jvm = "1.7.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,6 +54,8 @@ material = { group = "com.google.android.material", name = "material", version.r
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+jvm = { id = "jvm" }
 kapt = { id = "kapt" }
+parcelize = { id = "kotlin-parcelize" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-dynamic-feature = { id = "com.android.dynamic-feature", version.ref = "agp" }
