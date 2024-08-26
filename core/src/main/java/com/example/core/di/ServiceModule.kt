@@ -14,7 +14,7 @@ class ServiceModule {
 
     @Provides
     @Singleton
-    fun providesPromoApi(retrofit: Retrofit): UserApi {
+    fun providesUserApi(retrofit: Retrofit): UserApi {
         return retrofit.create(UserApi::class.java)
     }
 
